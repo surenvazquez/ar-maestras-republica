@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maestras de la República · SeniorLab Citilab</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #5b3d8a;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 3.5rem 1.5rem 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    header .label {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      line-height: 1.3;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    header h1 span {
+      color: #e8c8ff;
+    }
+
+    header .subtitle {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .section + .section {
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #e8c8ff;
+      margin-bottom: 1.25rem;
+    }
+
+    .section p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.97rem;
+      line-height: 1.85;
+    }
+
+    .section p + p {
+      margin-top: 1rem;
+    }
+
+    .team-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .team-member {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 1.1rem 1.3rem;
+    }
+
+    .team-member .name {
+      font-size: 1rem;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-member .role {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
+    }
+
+    .team-member.coordinator {
+      border-color: rgba(232,200,255,0.4);
+    }
+
+    .team-member.coordinator .name {
+      color: #e8c8ff;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .ar-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(232,200,255,0.3);
+      padding: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .ar-box p {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .ar-box .coming-soon {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #e8c8ff;
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="label">SeniorLab · Fundació Citilab · Cornellà de Llobregat</div>
+    <h1>Maestras de la <span>República</span></h1>
+    <p class="subtitle">Un proyecto de las mujeres del SeniorLab para visibilizar una historia que merece ser recordada</p>
+  </header>
+
+  <div class="section">
+    <div class="section-label">El proyecto</div>
+    <p>
+      Este proyecto nace de la comunidad de mujeres del <strong>SeniorLab de Citilab</strong>, un espacio de aprendizaje tecnológico activo donde personas mayores exploran las herramientas digitales del presente con curiosidad y compromiso.
+    </p>
+    <p>
+      El objetivo es visibilizar la labor de las <strong>maestras de la República Española</strong>: mujeres que dedicaron su vida a la educación pública en un momento histórico de enorme transformación, y cuya memoria merece ser preservada y transmitida.
+    </p>
+    <p>
+      A través de la tecnología como vehículo de expresión y aprendizaje, las participantes han investigado, creado y producido contenidos audiovisuales propios que formarán parte de una experiencia interactiva de realidad aumentada.
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Quiénes somos</div>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="name">Neus Sevilla</div>
+        <div class="role">Participante · Creadora de contenido</div>
+      </div>
+      <div class="team-member">
+        <div class="name">Nuria Anglés</div>
+        <div class="role">Participante · Creadora de contenido</div>
+      </div>
+      <div class="team-member">
+        <div class="name">Rosa Garví</div>
+        <div class="role">Participante · Creadora de contenido</div>
+      </div>
+      <div class="team-member coordinator">
+        <div class="name">Suren Vázquez</div>
+        <div class="role">Dinamizadora y formadora tecnológica · SeniorLab Citilab</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">La experiencia de realidad aumentada</div>
+    <div class="ar-box">
+      <p>
+        El corazón del proyecto es una experiencia de <strong>realidad aumentada</strong> que funciona directamente desde el navegador del móvil, sin necesidad de instalar ninguna aplicación.
+      </p>
+      <p>
+        Cada marcador — una imagen impresa o en pantalla — actúa como activador y despliega un vídeo creado por las participantes del grupo. Los vídeos recogen la investigación, reflexiones y voces de las mujeres del SeniorLab sobre las maestras republicanas.
+      </p>
+      <p class="coming-soon">Experiencia disponible próximamente</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Tecnologías utilizadas</div>
+    <p>Como parte del aprendizaje tecnológico del SeniorLab, este proyecto ha incorporado herramientas digitales diversas:</p>
+    <div class="tech-list">
+      <span class="tech-tag">Canva</span>
+      <span class="tech-tag">Grok AI</span>
+      <span class="tech-tag">Movie Maker</span>
+      <span class="tech-tag">Gamma</span>
+      <span class="tech-tag">Suno AI</span>
+      <span class="tech-tag">AR.js</span>
+      <span class="tech-tag">A-Frame</span>
+      <span class="tech-tag">GitHub Pages</span>
+    </div>
+  </div>
+
+  <footer>
+    <p>SeniorLab · <a href="https://www.citilab.eu" target="_blank">Fundació Citilab</a> · Cornellà de Llobregat</p>
+  </footer>
+
+</body>
+</html>
