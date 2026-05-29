@@ -6,56 +6,137 @@
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
   <style>
-    body { margin: 0; overflow: hidden; }
+    body { margin: 0; overflow: hidden; font-family: Georgia, serif; }
+
     #back {
       position: fixed; top: 12px; left: 12px; z-index: 999;
-      background: rgba(91,61,138,0.8); color: white;
+      background: rgba(91,61,138,0.85); color: white;
       border: 1px solid rgba(255,255,255,0.3);
-      padding: 6px 14px; font-size: 13px;
-      font-family: Georgia, serif; text-decoration: none;
+      padding: 6px 14px; font-size: 13px; text-decoration: none;
     }
+
+    #video-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 500;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    #video-overlay.visible { display: flex; }
+
+    #video-overlay h2 {
+      color: #e8c8ff;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    #video-overlay iframe {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 16/9;
+      border: none;
+    }
+
+    #video-overlay .close-btn {
+      margin-top: 1rem;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: Georgia, serif;
+    }
+
+    #hint {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(91,61,138,0.9);
+      color: white;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.85rem;
+      border: 1px solid rgba(232,200,255,0.4);
+      z-index: 400;
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    #hint.visible { display: block; }
   </style>
 </head>
 <body>
   <a href="index.html" id="back">← Volver</a>
 
-  <a-scene embedded arjs="detectionMode: mono; matrixCodeType: 3x3;" vr-mode-ui="enabled: false">
-    <a-assets>
-      <img id="matilde" src="matilde_marcador.png">
-    </a-assets>
+  <div id="video-overlay">
+    <h2>Matilde Ledesma Martín · Maestra de la República</h2>
+    <iframe
+      id="yt-player"
+      src=""
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+    <button class="close-btn" onclick="closeVideo()">✕ Cerrar</button>
+  </div>
 
-    <a-marker type="pattern" url="matilde.patt">
+  <div id="hint" onclick="openVideo()">▶ Ver vídeo de Matilde Ledesma</div>
 
+  <a-scene embedded arjs vr-mode-ui="enabled: false">
+    <a-marker type="pattern" url="matilde.patt" id="matilde-marker">
+      <a-image
+        src="matilde.jpg"
+        position="0 0.01 0"
+        rotation="-90 0 0"
+        width="1.8" height="1.8">
+      </a-image>
       <a-text
         value="Matilde Ledesma Martín\nMaestra de la República"
-        position="0 1.5 0"
+        position="0 0.05 -1.1"
+        rotation="-90 0 0"
         align="center"
         color="#e8c8ff"
-        scale="0.7 0.7 0.7"
+        scale="0.55 0.55 0.55"
         line-height="1.4">
       </a-text>
-
-      <a-plane
-        position="0 0.5 0"
-        rotation="-90 0 0"
-        width="2" height="0.8"
-        color="#3d1f6e"
-        opacity="0.85">
-      </a-plane>
-
-      <a-text
-        value="Dedicó su vida a la educación\npública en la España republicana"
-        position="0 0.5 0"
-        align="center"
-        color="#ffffff"
-        scale="0.45 0.45 0.45"
-        rotation="-90 0 0"
-        line-height="1.5">
-      </a-text>
-
     </a-marker>
-
     <a-entity camera></a-entity>
   </a-scene>
+
+  <script>
+    const VIDEO_ID = 'pD_rnOeFEs0';
+
+    function openVideo() {
+      document.getElementById('yt-player').src =
+        'https://www.youtube.com/embed/' + VIDEO_ID + '?autoplay=1';
+      document.getElementById('video-overlay').classList.add('visible');
+      document.getElementById('hint').classList.remove('visible');
+    }
+
+    function closeVideo() {
+      document.getElementById('yt-player').src = '';
+      document.getElementById('video-overlay').classList.remove('visible');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const marker = document.getElementById('matilde-marker');
+      marker.addEventListener('markerFound', () => {
+        document.getElementById('hint').classList.add('visible');
+      });
+      marker.addEventListener('markerLost', () => {
+        document.getElementById('hint').classList.remove('visible');
+      });
+    });
+  </script>
 </body>
 </html>
