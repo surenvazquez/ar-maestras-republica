@@ -92,8 +92,8 @@
 
   <div id="hint" onclick="openVideo()">▶ Ver vídeo de Matilde Ledesma</div>
 
-  <a-scene embedded arjs vr-mode-ui="enabled: false">
-    <a-marker preset="hiro" id="matilde-marker">
+  <a-scene embedded arjs="debugUIEnabled: false;" vr-mode-ui="enabled: false">
+    <a-marker type="pattern" url="matilde_byn.patt" id="matilde-marker">
       <a-image
         src="matilde.jpg"
         position="0 0.01 0"
